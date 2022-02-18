@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url(/src//assets/images/circle.png);
+  background-position: left top;
+  background-size: auto;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  /* cursor: url(/image/cur.svg), pointer !important; */
+}
+
