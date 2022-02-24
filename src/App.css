@@ -3,8 +3,9 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  background-image: url(/src//assets/images/circle.png);
+  background-image: url(/assets/images/circle.png);
   background-position: left top;
   background-size: auto;
   background-repeat: repeat;
