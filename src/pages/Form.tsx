@@ -11,15 +11,15 @@ const Form: React.FC = () => {
     const handleSubmit = (e: { preventDefault: () => void }) => {
       e.preventDefault();
       console.log(formData);
-      // axios
-      //   .post('http://localhost:3001/api/users', formData)
-      //   .then((res: { data: any }) => {
-      //     console.log(res.data);
-      //     // sessionStorage.setItem('token', res.data.token);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
+      axios
+        .post('http://localhost:3001/api/users', formData)
+        .then((res: { data: any }) => {
+          console.log(res.data);
+          // sessionStorage.setItem('token', res.data.token);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     };
 
   // grap User Data
