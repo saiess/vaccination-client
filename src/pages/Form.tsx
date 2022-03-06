@@ -1,33 +1,58 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
 const Form: React.FC = () => {
 
 
-    const initaileState = { email: '', password: '', fname: '', lname: '', cin: '' , phone: '', city: '' };
+    const initaileState = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+      cin: '',
+      phone: '',
+      city: '',
+    };
     const [formData, setFormData] = useState(initaileState);
 
     const handleSubmit = (e: { preventDefault: () => void }) => {
       e.preventDefault();
       console.log(formData);
-      axios
-        .post('http://localhost:3001/api/users', formData)
-        .then((res: { data: any }) => {
-          console.log(res.data);
-          // sessionStorage.setItem('token', res.data.token);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      // axios
+      //   .post('http://localhost:3001/api/users', formData)
+      //   .then((res: { data: any }) => {
+      //     console.log(res.data, 'looooooooooooooooooooooool');
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
+
+
+        axios
+          .post('http://localhost:3001/api/users', formData)
+          .then((res) => {
+            console.log("inside post",res.data);
+          })
+          .catch(function (error) {
+            if (error.response) {
+              console.log(error.response);
+            } else if (error.request) {
+              console.log(error.request);
+            } else if (error.message) {
+              console.log(error.message);
+            }
+          })
     };
+    
 
   // grap User Data
   const handleChange = (e: { target: { name: string; value: string } }) => {
+    console.log(e.target)
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
-    <div className="w-full h-full">
+    <div className="w-4/5 h-4/5 my-16">
       <div className="relative h-full flex flex-col sm:justify-center items-center">
         <div className="relative sm:max-w-4xl w-full h-4/5">
           <div className="card bg-cyan-500 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
@@ -49,7 +74,7 @@ const Form: React.FC = () => {
                 <input
                   type="text"
                   placeholder="First Name"
-                  name="fname"
+                  name="firstname"
                   onChange={handleChange}
                   className="mt-1 pl-4 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:outline-cyan-500"
                 />
@@ -59,7 +84,7 @@ const Form: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Last Name"
-                  name="lname"
+                  name="lastname"
                   onChange={handleChange}
                   className="mt-7 pl-4 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:outline-orange-500"
                 />

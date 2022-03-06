@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         ) : null}
 
         {!showCard ? (
-          <div className="container animate-[wiggle_1s_ease-in-out] h-3/5 mx-auto max-w-xs rounded-lg overflow-hidden shadow-lg my-2 bg-white">
+          <div className="container animate-[wiggle_1s_ease-in-out] mx-auto max-w-xs rounded-lg overflow-hidden shadow-lg my-2 bg-white">
             <div
               style={{
                 backgroundImage:
@@ -120,7 +120,7 @@ const Home: React.FC = () => {
         ) : null}
 
         {!showCard2 ? (
-          <div className="container animate-[wiggle_1s_ease-in-out] h-3/5 mx-auto max-w-xs rounded-lg overflow-hidden shadow-lg my-2 bg-white">
+          <div className="container animate-[wiggle_1s_ease-in-out] mx-auto max-w-xs rounded-lg overflow-hidden shadow-lg my-2 bg-white">
             <div
               style={{
                 backgroundImage:
@@ -187,7 +187,7 @@ const Home: React.FC = () => {
         ) : null}
 
         {!showCard3 ? (
-          <div className="container animate-[wiggle_1s_ease-in-out] h-3/5 mx-auto max-w-xs rounded-lg overflow-hidden shadow-lg my-2 bg-white">
+          <div className="container animate-[wiggle_1s_ease-in-out] mx-auto max-w-xs rounded-lg overflow-hidden shadow-lg my-2 bg-white">
             <div
               style={{
                 backgroundImage:

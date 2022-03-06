@@ -8,6 +8,8 @@ import Navbar from './layouts/Navbar';
 import Home from './pages/Home';
 import Form from './pages/Form';
 import Error from './pages/Error';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +22,8 @@ function App() {
           <Route path="/" />
           <Route index element={<Home />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Dashboard />} />
           {/* catch missing paths */}
           <Route path="*" element={<Error />} />
         </Routes>
