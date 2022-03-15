@@ -28,9 +28,7 @@ const Home: React.FC = () => {
               <button className="p-4 bg-orange-400 rounded-full hover:scale-110 transition ease-in duration-200 focus:outline-none shadow-md shadow-orange-600 hover:shadow-xl hover:shadow-orange-600">
                 <span
                   className="text-black font-semibold bg-orange-500 rounded-full p-2"
-                  onClick={() => {
-                    return setShowCard(!showCard);
-                  }}
+                  onClick={() => setShowCard(!showCard)}
                 >
                   Go
                 </span>
@@ -96,9 +94,7 @@ const Home: React.FC = () => {
             />
             <div className="text-center absolute w-full -bottom-10">
               <button
-                onClick={() => {
-                  return setShowCard2(!showCard2);
-                }}
+                onClick={() => setShowCard2(!showCard2)}
                 className="p-4 bg-orange-400 rounded-full hover:scale-110 transition ease-in duration-200 focus:outline-none shadow-md shadow-orange-600 hover:shadow-xl hover:shadow-orange-600"
               >
                 <span className="text-black font-semibold bg-orange-500 rounded-full p-2">
@@ -163,9 +159,7 @@ const Home: React.FC = () => {
             />
             <div className="text-center absolute w-full -bottom-10">
               <button
-                onClick={() => {
-                  return setShowCard3(!showCard3);
-                }}
+                onClick={() => setShowCard3(!showCard3)}
                 className="p-4 bg-orange-400 rounded-full hover:scale-110 transition ease-in duration-200 focus:outline-none shadow-md shadow-orange-600 hover:shadow-xl hover:shadow-orange-600"
               >
                 <span className="text-black font-semibold bg-orange-500 rounded-full p-2">
