@@ -1,0 +1,89 @@
+/* eslint-disable no-underscore-dangle */
+import axios from 'axios';
+import React from 'react';
+import { AiFillDelete } from 'react-icons/ai';
+import { FaEdit, FaPlusSquare } from 'react-icons/fa';
+import useFetch from '../hooks/useFetch';
+
+const Center: React.FC = () => {
+  const url = 'http://localhost:3001/api/centers/';
+  const { data, loading, error } = useFetch(url);
+
+  console.log(data, 'is heeeeeeeeere');
+  if (loading) return <h1>LOADING...</h1>;
+
+  if (error) console.log(error);
+
+  const handleClick = (_id: string) => {
+    axios
+      .delete(`http://localhost:3001/api/centers/${_id}`)
+      .then((res: any) => {
+        console.log(res);
+      })
+      .catch((err: any) => {
+        console.log(err);
+      });
+  };
+  return (
+    <>
+      <div className="min-w-full flex justify-between mb-8">
+        <h1 className="text-4xl font-semibold">Centers</h1>
+        <button
+          type="button"
+          className="flex items-center justify-evenly w-40 bg-slate-200 shadow-lg px-4 py-3 rounded-md border border-white font-medium"
+        >
+          Add New <FaPlusSquare />
+        </button>
+      </div>
+      <table className="min-w-full">
+        <thead>
+          <tr>
+            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Name
+            </th>
+            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Region
+            </th>
+            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Created at
+            </th>
+            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody id="chefrayons">
+          {data?.map((el) => (
+            <tr key={el._id}>
+              <td className="px-5 py-5 text-center border-b border-gray-200 bg-white text-sm">
+                <p className="text-gray-900 whitespace-no-wrap">{el?.name}</p>
+              </td>
+              <td className="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">
+                <p className="text-gray-900 whitespace-no-wrap">{el?.region}</p>
+              </td>
+              <td className="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">
+                <p className="text-gray-900 whitespace-no-wrap">
+                  {el?.createdAt}
+                </p>
+              </td>
+              <td className="px-5 py-5 border-b text-center border-gray-200 bg-white text-sm">
+                <button
+                  type="button"
+                  className="text-3xl pr-2 text-orange-600"
+                  onClick={() => handleClick(el._id)}
+                >
+                  <AiFillDelete />
+                </button>
+                <button type="button" className="text-3xl pl-3 text-cyan-600">
+                  <FaEdit />
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+};
+
+export default Center;

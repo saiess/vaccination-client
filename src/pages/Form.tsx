@@ -1,54 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
 const Form: React.FC = () => {
+  const initaileState = {
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    cin: '',
+    phone: '',
+    city: '',
+  };
+  const [formData, setFormData] = useState(initaileState);
 
-
-    const initaileState = {
-      firstname: '',
-      lastname: '',
-      email: '',
-      password: '',
-      cin: '',
-      phone: '',
-      city: '',
-    };
-    const [formData, setFormData] = useState(initaileState);
-
-    const handleSubmit = (e: { preventDefault: () => void }) => {
-      e.preventDefault();
-      console.log(formData);
-      // axios
-      //   .post('http://localhost:3001/api/users', formData)
-      //   .then((res: { data: any }) => {
-      //     console.log(res.data, 'looooooooooooooooooooooool');
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
-
-
-        axios
-          .post('http://localhost:3001/api/users', formData)
-          .then((res) => {
-            console.log("inside post",res.data);
-          })
-          .catch(function (error) {
-            if (error.response) {
-              console.log(error.response);
-            } else if (error.request) {
-              console.log(error.request);
-            } else if (error.message) {
-              console.log(error.message);
-            }
-          })
-    };
-    
+  const handleSubmit = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    console.log(formData);
+    axios
+      .post('http://localhost:3001/api/users', formData)
+      .then((res) => {
+        console.log('inside post', res.data);
+      })
+      .catch((error) => {
+        if (error.response) {
+          console.log(error.response);
+        } else if (error.request) {
+          console.log(error.request);
+        } else if (error.message) {
+          console.log(error.message);
+        }
+      });
+  };
 
   // grap User Data
   const handleChange = (e: { target: { name: string; value: string } }) => {
-    console.log(e.target)
+    console.log(e.target);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   return (
